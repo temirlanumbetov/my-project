@@ -20,6 +20,10 @@ pipeline {
             steps {
                 sh '''
                 export HOME=/tmp
+                export ANSIBLE_HOME=/tmp
+                export ANSIBLE_REMOTE_TMP=/tmp/.ansible
+                mkdir -p /tmp/.ansible
+
                 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
                 '''
             }
