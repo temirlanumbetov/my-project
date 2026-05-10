@@ -5,6 +5,7 @@ pipeline {
         ANSIBLE_HOST_KEY_CHECKING = "False"
         HOME = "/home/temirlan"
         ANSIBLE_PRIVATE_KEY_FILE = "/home/temirlan/.ssh/id_ed25519"
+        ANSIBLE_REMOTE_TMP = "/tmp/.ansible"
     }
 
     stages {
@@ -18,6 +19,7 @@ pipeline {
         stage('Install Docker (Ansible)') {
             steps {
                 sh '''
+                export HOME=/tmp
                 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
                 '''
             }
