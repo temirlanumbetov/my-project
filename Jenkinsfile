@@ -4,6 +4,7 @@ pipeline {
     environment {
         ANSIBLE_HOST_KEY_CHECKING = "False"
         HOME = "/home/temirlan"
+        ANSIBLE_PRIVATE_KEY_FILE = "/home/temirlan/.ssh/id_ed25519"
     }
 
     stages {
@@ -17,45 +18,35 @@ pipeline {
         stage('Install Docker (Ansible)') {
             steps {
                 sh '''
-                ansible-playbook -i inventory/hosts playbooks/docker_install.yml \
-                --private-key /home/temirlan/.ssh/id_ed25519
+                ansible-playbook -i inventory/hosts playbooks/docker_install.yml
                 '''
             }
         }
 
         stage('Build Docker') {
             steps {
-                sh """
+                sh '''
                 docker build -t apache-app ./app
-                """
+                '''
             }
         }
 
         stage('Run Container') {
             steps {
-                sh """
+                sh '''
                 docker rm -f app || true
                 docker run -d -p 80:80 --name app apache-app
-                """
+                '''
             }
         }
 
         stage('System Script') {
             steps {
-                sh """
+                sh '''
                 chmod +x scripts/sysinfo.sh
                 ./scripts/sysinfo.sh
-                """
+                '''
             }
-        }
-    }
-
-    post {
-        success {
-            echo "PIPELINE SUCCESS"
-        }
-        failure {
-            echo "PIPELINE FAILED"
         }
     }
 }
