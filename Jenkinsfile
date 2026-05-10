@@ -19,12 +19,13 @@ pipeline {
         stage('Install Docker (Ansible)') {
             steps {
                 sh '''
+                echo "USER=$(whoami)"
                 echo "HOME=$HOME"
-                whoami
 
                 mkdir -p /tmp/.ansible
 
                 HOME=/tmp \
+                ANSIBLE_CONFIG=/var/lib/jenkins/workspace/pipeline/ansible.cfg \
                 ANSIBLE_LOCAL_TEMP=/tmp/.ansible \
                 ANSIBLE_REMOTE_TMP=/tmp/.ansible \
                 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
