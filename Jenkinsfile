@@ -19,11 +19,14 @@ pipeline {
         stage('Install Docker (Ansible)') {
             steps {
                 sh '''
+                echo "HOME=$HOME"
+                whoami
+
                 mkdir -p /tmp/.ansible
 
+                HOME=/tmp \
                 ANSIBLE_LOCAL_TEMP=/tmp/.ansible \
                 ANSIBLE_REMOTE_TMP=/tmp/.ansible \
-                HOME=/tmp \
                 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
                 '''
             }
