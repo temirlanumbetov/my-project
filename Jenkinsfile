@@ -34,8 +34,8 @@ pipeline {
         stage('Run Container') {
             steps {
                 sh '''
-                docker rm -f app || true
-                docker run -d -p 80:80 --name app apache-app
+                sudo docker rm -f app || true
+                sudo docker run -d -p 80:80 --name app apache-app
                 '''
             }
         }
