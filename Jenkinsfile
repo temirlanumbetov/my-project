@@ -18,10 +18,11 @@ pipeline {
         stage('Install Docker (Ansible)') {
             steps {
                 sh '''
+                ANSIBLE_PRIVATE_KEY_FILE=/home/temirlan/.ssh/id_ed25519 \
                 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
                 '''
             }
-        }
+        } 
 
         stage('Build Docker') {
             steps {
