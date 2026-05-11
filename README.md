@@ -78,7 +78,7 @@ ansible-playbook -i inventory/hosts playbooks/docker_install.yml
 docker build -t apache-app ./app
 4️⃣ Запуск контейнера
 
-
+images/33.png
 docker rm -f app || true
 docker run -d -p 80:80 --name app apache-app
 5️⃣ Мониторинг системы
