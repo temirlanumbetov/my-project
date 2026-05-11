@@ -83,7 +83,7 @@ docker rm -f app || true
 docker run -d -p 80:80 --name app apache-app
 5️⃣ Мониторинг системы
 <img width="1886" height="900" alt="33" src="https://github.com/user-attachments/assets/f77bb9c7-fefd-4868-a795-4911ee1c67a4" />
-
+images/22.png
 Bash-скрипт собирает:
 
 загрузку CPU
