@@ -36,7 +36,7 @@ Ubuntu	    Целевая ОС (VM1, VM2)
 Bash	      Скрипты мониторинга VM2
 Apache2	    Веб-сервер
 Git/GitHub	Контроль версий
-
+ 
 Структура проекта
 my-project/
 ├── app/
