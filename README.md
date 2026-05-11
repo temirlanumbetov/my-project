@@ -60,20 +60,20 @@ my-project/
 1️⃣ Получение кода (Checkout)
 
 Jenkins забирает последнюю версию проекта из репозитория.
-<img width="1872" height="945" alt="stages" src="https://github.com/user-attachments/assets/042408bb-b300-4484-9702-eaffab4fb244" />
+![Jenkins](images/jenkins-pipeline.png)
 
 2️⃣ Установка Docker через Ansible
 <img width="1066" height="92" alt="docker ps" src="https://github.com/user-attachments/assets/3788426c-2be1-4f80-b664-17ba06b27e26" />
 
 Автоматическая настройка сервера:
-<img width="1432" height="797" alt="inst" src="https://github.com/user-attachments/assets/d9c44263-9c73-431d-bf1d-1efa673695a1" />
+![Ansible](images/ansible.png)
 
 установка Docker
 настройка окружения
 подготовка VM к деплою
 ansible-playbook -i inventory/hosts playbooks/docker_install.yml
 3️⃣ Сборка Docker образа
-<img width="1417" height="761" alt="1" src="https://github.com/user-attachments/assets/ff837ae7-be99-4150-a276-97ef7e7813a0" />
+![Docker](images/docker.png)
 
 docker build -t apache-app ./app
 4️⃣ Запуск контейнера
@@ -89,7 +89,7 @@ Bash-скрипт собирает:
 загрузку CPU
 использование RAM
 формирует HTML отчёт
-<img width="817" height="407" alt="Снимок экрана 2026-05-10 224054" src="https://github.com/user-attachments/assets/26978134-6a6e-4ba3-bfab-2cf78f6abbd5" />
+![Report](images/report.png)
 
 🎯 Что демонстрирует проект
 CI/CD автоматизация
