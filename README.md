@@ -55,7 +55,7 @@ my-project/
 ├── Jenkinsfile
 ├── ansible.cfg
 └── README.md
-
+https://github.com/temirlanumbetov/my-project/blob/14e4218ea09a4c5a274d60283c797b56cff90011/images/22.png
 🔄 Этапы CI/CD пайплайна
 1️⃣ Получение кода (Checkout)
 
